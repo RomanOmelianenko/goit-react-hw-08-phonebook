@@ -1,0 +1,46 @@
+{
+  "contacts": [
+    {
+      "text": {
+        "name": "sdfg",
+        "number": "3456"
+      },
+      "id": 1
+    },
+    {
+      "text": {
+        "name": "max",
+        "number": "1"
+      },
+      "id": 2
+    },
+    {
+      "text": {
+        "name": "max2",
+        "number": "2"
+      },
+      "id": 3
+    },
+    {
+      "text": {
+        "name": "m",
+        "number": "1"
+      },
+      "id": 4
+    },
+    {
+      "text": {
+        "name": "m1",
+        "number": "2"
+      },
+      "id": 5
+    },
+    {
+      "text": {
+        "name": "c",
+        "number": "1"
+      },
+      "id": 6
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+.Wrapper {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.ContactsName {
+  font-size: 20px;
+  font-family: sans-serif;
+  margin: 30px 0 0 12px;
+  display: inline-block;
+  color: #2b32b2;
+}
+
+/* ==================== Animation =================== */
+
+/* ===================== Header ===================== */
+
+.HeaderAppear-appear {
+  transform: translateY(-100%);
+}
+
+.HeaderAppear-appear-active {
+  transform: translateY(0);
+  transition: transform 500ms linear;
+}
+
+/* ===================== Logo ======================= */
+
+.LogoAppear-enter {
+  opacity: 0;
+}
+
+.LogoAppear-enter-active {
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
+
+/* ================== ContactForm =================== */
+
+.ContactFotmAppear-appear {
+  transform: scale(0.1);
+}
+.ContactFotmAppear-appear-active {
+  transform: scale(1);
+  transition: transform 500ms linear;
+}
+
+/* =================== Contacts ====================== */
+
+.ContactsAppear-enter {
+  opacity: 0;
+  transform: scale(0.1);
+}
+.ContactsAppear-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 250ms ease-in-out;
+}
+.ContactsAppear-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.ContactsAppear-exit-active {
+  opacity: 0;
+  transform: scale(0.1);
+  transition: all 250ms ease-in-out;
+}
+
+/* ============== ContactListAppear =============== */
+
+.ContactListApp-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.ContactListApp-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 250ms ease-in-out;
+}
+
+.ContactListApp-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ContactListApp-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 250ms ease-in-out;
+}
+
+/* ==================== Filter ======================*/
+
+.FilterAppear-enter {
+  transform: scale(0.1);
+}
+.FilterAppear-enter-active {
+  transform: scale(1);
+  transition: transform 250ms ease-in-out;
+}
+
+.FilterAppear-exit {
+  transform: scale(1);
+}
+.FilterAppear-exit-active {
+  transform: scale(0.1);
+  transition: transform 250ms ease-in-out;
+}
+
+/* ========== ShowModal =========== */
+
+.ShowModalAppear-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.ShowModalAppear-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 250ms ease-in-out;
+}
+
+.ShowModalAppear-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ShowModalAppear-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 250ms ease-in-out;
+}

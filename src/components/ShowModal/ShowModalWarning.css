@@ -1,0 +1,24 @@
+.Modal {
+  width: 30%;
+  height: 60px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  background-color: red;
+  position: fixed;
+  top: 1%;
+  left: 66%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.Modal-message {
+  color: white;
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
