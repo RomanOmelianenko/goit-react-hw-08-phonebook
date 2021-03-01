@@ -7,7 +7,10 @@ import contactsOperations from '../../redux/contacts/contactsOperations';
 import contactsSelectors from '../../redux/contacts/contactsSelectors';
 
 const ContactList = ({ contacts, onRemoveContact }) => (
-    <TransitionGroup
+    <>
+        <h2>Contacts List</h2>
+
+        <TransitionGroup
         component="ul"
         className="TaskList">
             
@@ -37,6 +40,8 @@ const ContactList = ({ contacts, onRemoveContact }) => (
             </CSSTransition>
         ))}
     </TransitionGroup>
+    </>
+    
 );
     
 // ContactList.propTypes = {

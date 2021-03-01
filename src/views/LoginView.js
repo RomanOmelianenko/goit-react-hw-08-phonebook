@@ -65,12 +65,4 @@ class LoginView extends Component {
   }
 };
 
-// const mapStateToprops = state => {
-//   return null
-// };
-
-// const mapDispatchToProps = {
-//   onLogin: authOperations.logIn
-// };
-
 export default connect(null, { onLogin: authOperations.logIn })(LoginView);

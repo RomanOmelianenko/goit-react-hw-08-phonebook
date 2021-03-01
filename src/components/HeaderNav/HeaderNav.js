@@ -14,7 +14,7 @@ const styles = {
   },
 };
 
-const Header = ({ inLogged }) => {
+const HeaderNav = ({ inLogged }) => {
   return (
     <header style={styles.header}>
       <Navigation />
@@ -27,4 +27,4 @@ const mapStateToProps = state => ({
   inLogged: authSelectors.isLogIn(state)
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(HeaderNav);

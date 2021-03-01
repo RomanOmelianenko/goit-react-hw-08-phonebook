@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { authOperations } from '../redux/auth';
-// import { authOperations } from '../redux/auth';
 
 const styles = {
   form: {
@@ -78,14 +77,3 @@ class RegisterView extends Component {
 };
 
 export default connect(null, { onRegister: authOperations.register })(RegisterView);
-
-// const mapStateToprops = (state) => {
-//   return null
-// };
-
-// const mapDispatchToProps = {
-//   onRegister: authOperations.register
-// };
-
-// В connect первый параметр - mapStateToprops(если он не нужен ставиться null),
-// второй параметр - mapDispatchToProps
