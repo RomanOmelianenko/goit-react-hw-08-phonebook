@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import NumberFormat from 'react-number-format';
+import { error, info } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
 import contactsActions from '../../redux/contacts/contactsActions';
 import contactsSelectors from '../../redux/contacts/contactsSelectors';
 import contactsOperations from '../../redux/contacts/contactsOperations';
@@ -30,24 +34,40 @@ class ContactForm extends Component {
         
         const { name, number } = this.state;
 
-        const sameNameContact = this.props.contactsItems
+        const sameNameContact = name => {
+            return this.props.contactsItems
             .map(contact => contact.name)
             .includes(name);
+        }
         
-        const inputNumber = Number(number)
+        // const inputNumber = Number(number)
 
-        if (sameNameContact) {
-            this.props.onSameNameContact();
-            setTimeout(() => {
-                this.props.onSameNameContact();
-            }, 1500);
+        if (sameNameContact(name)) {
+            error({
+                title: 'Error',
+                text: `Name "${name}" already exist`
+            })
+        
         } else if (name.length === 0) {
-            alert("Field 'Name' must be filled!");
+            info({
+                title: 'Info',
+                text: "Field 'Name' must be filled!"
+            });
         } else if (number.length === 0) {
-            alert("Field 'Number' must be filled!")
-        } else if (!inputNumber) {
-            alert("Insert the number")
-        } else {
+            info({
+                title: 'Info',
+                text: "Field 'Number' must be filled!"
+            })
+        // } else if (name === '' || number === '') {
+        //     alert("All fields must be filled")
+        }
+        // else if (!inputNumber) {
+        //     info({
+        //         title: 'Info',
+        //         text: 'Enter the number!'
+        //     })
+        // }
+        else {
             this.props.onAddContact({ ...this.state });
         }
 
@@ -64,7 +84,7 @@ class ContactForm extends Component {
                     Name
                         <input
                             className={styles.TaskEditor_input}
-                            type="text"
+                            type="tel"
                             name="name"
                             placeholder="Your name"
                             autoComplete="off"
@@ -77,9 +97,12 @@ class ContactForm extends Component {
                 <label
                     className={styles.TaskEditor_label}>
                     Number
-                    <input
+                    <NumberFormat
+                        format="(###) ###-##-##"
+                        mask="_"
+                        // pattern="^[0-9\s\(\)\-]{15}"
                         className={styles.TaskEditor_input}
-                        type="text"
+                        type="tel"
                         name="number"
                         placeholder="Your number"
                         autoComplete="off"

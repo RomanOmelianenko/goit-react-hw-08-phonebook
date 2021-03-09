@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderNav from '../HeaderNav/HeaderNav';
+// import HeaderNav from '../HeaderNav/HeaderNav';
 
 const styles = {
   container: {
@@ -12,7 +12,7 @@ const styles = {
 
 const Layout = ({ children }) => (
   <div style={styles.container}>
-    <HeaderNav />
+    {/* <HeaderNav /> */}
     {children}
   </div>
 );

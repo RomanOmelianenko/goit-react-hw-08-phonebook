@@ -1,5 +1,8 @@
 import axios from 'axios';
 import authActions from './authActions';
+import { error, success, info } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
 
 axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com/';
 
@@ -19,8 +22,35 @@ const register = credentials => dispatch => {
         .then(response => {
             token.set(response.data.token);
             dispatch(authActions.registerSuccess(response.data));
+
+             if (response.status === 201) {
+                success({
+                    title: 'Success',
+                    text: 'User created!'
+                });
+            }
         })
-        .catch(error => dispatch(authActions.registerError(error.message)));
+        .catch(errors => {
+            dispatch(authActions.registerError(errors.message))
+
+            if (errors.response.status === 400) {
+                error({
+                    title: 'Error',
+                    text: 'User creation error! Please try again!'
+                });
+            } else if (errors.response.status === 500) {
+                error({
+                    title: 'Error',
+                    text: 'Oops! Server error! Please try later!'
+                });
+            } else {
+                error({
+                    title: 'Error',
+                    text: 'Something went wrong!'
+                });
+            };
+        }
+    );
 };
 
 const logIn = credentials => dispatch => {
@@ -29,9 +59,26 @@ const logIn = credentials => dispatch => {
         .post('/users/login', credentials)
         .then(response => {
             token.set(response.data.token);
-            dispatch(authActions.loginSuccess(response.data))
+            dispatch(authActions.loginSuccess(response.data));
+
+            if (response.status === 200) {
+                success({
+                    title: 'Success',
+                    text: 'You are successfully logged in'
+                })
+            }
         })
-        .catch(error => dispatch(authActions.loginError(error)));
+        .catch(errors => {
+            dispatch(authActions.loginError(errors))
+
+            if (errors) {
+                error({
+                    title: 'Error',
+                    text: 'Login error! Try again!'
+                });
+            }
+        }
+    );
 };
 
 const logOut = () => dispatch => {
@@ -39,11 +86,37 @@ const logOut = () => dispatch => {
 
     axios
         .post('/users/logout')
-        .then(() => {
+        .then((response) => {
             token.unset();
-            dispatch(authActions.logoutSuccess())
+            dispatch(authActions.logoutSuccess(response));
+
+            if (response.status === 200) {
+                info({
+                    title: 'Info',
+                    text: 'User is logged out'
+                })
+            }
         })
-        .catch(error => dispatch(authActions.logoutError(error.message)))
+        .catch(errors => {
+            dispatch(authActions.logoutError(errors.message));
+
+              if (errors.response.status === 401) {
+                error({
+                    title: 'Error',
+                    text: 'Missing header with authorization token! Please try again!'
+                });
+            } else if (errors.response.status === 500) {
+                error({
+                    title: 'Error',
+                    text: 'Oops! Server error! Please try later!'
+                });
+            } else {
+                error({
+                    title: 'Error',
+                    text: 'Something went wrong!'
+                });
+            };
+        })
 };
 
 
@@ -63,7 +136,7 @@ const getCurrentUser = () => (dispatch, getState) => {
         .get('/users/current')
         .then(({ data }) =>
             dispatch(authActions.getCurrentUserSuccess(data)))
-        .catch(error => dispatch(authActions.getCurrentUserError(error.message)))
+        .catch(errors => dispatch(authActions.getCurrentUserError(errors.message)))
 };
 
 const authOperations = {

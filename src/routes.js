@@ -21,7 +21,7 @@ const routes = [
     path: '/login',
     label: 'Login',
     exact: true,
-    component: lazy(() => import('./views/LoginView')),
+    component: lazy(() => import('./views/LoginView/LoginView')),
     private: false,
     restricted: true
   },
@@ -29,7 +29,7 @@ const routes = [
     path: '/contacts',
     label: 'Contacts',
     exact: true,
-    component: lazy(() => import('./views/ContactsView')),
+    component: lazy(() => import('./views/ContactsView/ContactsView')),
     private: true,
     restricted: false
   },

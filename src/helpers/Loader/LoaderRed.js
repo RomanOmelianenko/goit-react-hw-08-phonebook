@@ -5,11 +5,11 @@ import styles from './Loader.module.css';
 function Spinner() {
     return (
         <Loader
-            className={styles.Loader}
+            className={styles.LoaderRed}
             type="Circles"
-            color="#3f51b5"
-            height={60}
-            width={60}
+            color="red"
+            height={28}
+            width={28}
         />
     )
 };

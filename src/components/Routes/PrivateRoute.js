@@ -5,7 +5,7 @@ import withAuth from '../hoc/withAuth';
 const PrivateRoute = ({ component: Component, isLogged, ...routeProps }) => (
     <Route
         {...routeProps}
-        render={props => isLogged ? <Component {...props} /> : <Redirect to='/login' />}  
+        render={props => isLogged ? <Component {...props} /> : <Redirect to='/' />}  
     />
 );
 

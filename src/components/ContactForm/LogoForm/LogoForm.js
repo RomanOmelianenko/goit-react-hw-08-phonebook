@@ -1,10 +1,10 @@
 import logo from './logo.svg';
-import './Logo.css';
+import './LogoForm.css';
 
-function Logo() {
+function LogoForm() {
     return (
         <img src={logo} className="App-logo" alt="logo" />
     );
 };
 
-export default Logo;
+export default LogoForm;

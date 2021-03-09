@@ -9,6 +9,8 @@ const styles = {
     padding: 12,
     fontWeight: 700,
     color: '#2A363B',
+    fontSize: 20,
+    fontFamily: "Roboto, sans-serif"
   },
   activeLink: {
     color: '#E84A5F',

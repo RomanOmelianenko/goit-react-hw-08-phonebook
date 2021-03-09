@@ -1,15 +1,31 @@
 .Wrapper {
   width: 400px;
   margin: 0 auto;
-  /* background-image: url("./components/img/background.jpg"); */
 }
 
 .ContactsName {
   font-size: 20px;
   font-family: sans-serif;
-  margin: 30px 0 0 12px;
-  display: inline-block;
+  margin: 30px 0 0 0;
+  display: block;
+  text-align: center;
   color: #2b32b2;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+  height: 40px;
+}
+
+.HeaderName {
+  font-size: 36px;
+  font-family: sans-serif;
+  color: #3f51b5;
+  margin: 0;
+  margin-left: 15px;
 }
 
 /* ==================== Animation =================== */
@@ -17,12 +33,14 @@
 /* ===================== Header ===================== */
 
 .HeaderAppear-appear {
-  transform: translateY(-100%);
+  opacity: 0;
+  transform: translateY(-70%);
 }
 
 .HeaderAppear-appear-active {
+  opacity: 1;
   transform: translateY(0);
-  transition: transform 500ms linear;
+  transition: all 500ms linear;
 }
 
 /* ===================== Logo ======================= */
@@ -34,16 +52,6 @@
 .LogoAppear-enter-active {
   opacity: 1;
   transition: opacity 500ms linear;
-}
-
-/* ================== ContactForm =================== */
-
-.ContactFotmAppear-appear {
-  transform: scale(0.1);
-}
-.ContactFotmAppear-appear-active {
-  transform: scale(1);
-  transition: transform 500ms linear;
 }
 
 /* =================== Contacts ====================== */
@@ -67,30 +75,6 @@
   transition: all 250ms ease-in-out;
 }
 
-/* ============== ContactListAppear =============== */
-
-.ContactListApp-enter {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-
-.ContactListApp-enter-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: all 250ms ease-in-out;
-}
-
-.ContactListApp-exit {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.ContactListApp-exit-active {
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: all 250ms ease-in-out;
-}
-
 /* ==================== Filter ======================*/
 
 .FilterAppear-enter {
@@ -107,28 +91,4 @@
 .FilterAppear-exit-active {
   transform: scale(0.1);
   transition: transform 250ms ease-in-out;
-}
-
-/* ========== ShowModal =========== */
-
-.ShowModalAppear-enter {
-  opacity: 0;
-  transform: translateX(100%);
-}
-
-.ShowModalAppear-enter-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: all 250ms ease-in-out;
-}
-
-.ShowModalAppear-exit {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.ShowModalAppear-exit-active {
-  opacity: 0;
-  transform: translateX(100%);
-  transition: all 250ms ease-in-out;
 }

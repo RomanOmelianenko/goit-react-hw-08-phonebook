@@ -8,6 +8,8 @@ const styles = {
     padding: 12,
     fontWeight: 700,
     color: '#2A363B',
+    fontSize: 20,
+    fontFamily: "Roboto, sans-serif"
   },
   activeLink: {
     color: '#E84A5F',
@@ -23,7 +25,7 @@ const AuthNav = () => (
       activeStyle={styles.activeLink}
     >
       Register
-        </NavLink>
+    </NavLink>
     <NavLink
       to='/login'
       exact
@@ -31,7 +33,7 @@ const AuthNav = () => (
       activeStyle={styles.activeLink}
     >
       Login
-        </NavLink>
+    </NavLink>
   </div>
 );
 
